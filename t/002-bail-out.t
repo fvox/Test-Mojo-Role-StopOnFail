@@ -10,7 +10,7 @@ package MyApp {
     app->start;
 };
 
-# Based on bail_out.t from Test::Simple :)
+# Totally based on 'bail_out.t' from Test::Simple module :)
 
 my $goto = 0;
 my $exit_code;
