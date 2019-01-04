@@ -1,8 +1,8 @@
 package Test::Mojo::Role::StopOnFail;
+# ABSTRACT: Stop Mojolicious tests after first failure.
+
 use Mojo::Base -role;
 use Test::More;
-
-# ABSTRACT: Stop Mojolicious tests after first failure.
 
 my @methods = qw(
     content_is
@@ -59,8 +59,61 @@ around @methods => sub {
     my $orig = shift;
 
     my $t = $orig->(@_);
-    $t->success or BAIL_OUT("Test::Mojo failed");
+    $t->success or Test::More::BAIL_OUT("Test failed.  BAIL OUT!.\n");
     return $t;
 };
 
 1;
+
+__END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+Test::Mojo::Role::StopOnFail
+
+=head1 VERSION
+
+v0.001
+
+=head1 SYNOPSIS
+
+  my $t = Test::Mojo->with_roles('+StopOnFail')->new('MyApp');
+
+  $t->get_ok('/')->status_is(200);
+
+=head1 DESCRIPTION
+
+When you have many tests, you may want to stop the test suite after the first failure. This modules does a
+C<Test::More::BAIL_OUT>, like C<die_on_fail> on L<Test::Most>.
+
+=head1 CAVEATS
+
+The C<Test::Mojo::or()> function only run when C<$t-E<gt>success> is I<FALSE>. Unconsciously, this module removed the
+purpose of this function, after all, a C<BAIL_OUT> would be threw before.
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<Mojolicious>
+
+=item * L<Mojo::Role>
+
+=item * L<Test::Mojo>
+
+=item * L<Test::More>
+
+=back
+
+=head1 LICENSE
+
+This software is copyright (c) 2019 by Junior Moraes.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
