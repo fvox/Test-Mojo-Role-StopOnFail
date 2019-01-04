@@ -88,7 +88,7 @@ v0.001
 =head1 DESCRIPTION
 
 When you have many tests, you may want to stop the test suite after the first failure. This modules does a
-C<Test::More::BAIL_OUT>, like C<die_on_fail> on L<Test::Most>.
+C<Test::More::BAIL_OUT>, like the C<die_on_fail> on L<Test::Most> behavior.
 
 =head1 CAVEATS
 

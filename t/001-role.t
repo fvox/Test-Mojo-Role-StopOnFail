@@ -16,4 +16,5 @@ use_ok 'Test::Mojo::Role::StopOnFail';
 ok my $t = Test::Mojo->with_roles('+StopOnFail')->new('MyApp');
 
 isa_ok $t, 'Test::Mojo';
+
 ok $t->does('Test::Mojo::Role::StopOnFail');

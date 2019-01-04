@@ -65,7 +65,8 @@ $test->is_eq($output, <<'OUTPUT');
     ok 5 - GET /
     ok 6 - 200 OK
     not ok 7 - exact match for content
-Bail out!  Test::Mojo failed
+Bail out!  Test failed.  BAIL OUT!.
+
 OUTPUT
 
 $test->is_eq($exit_code, 255);
