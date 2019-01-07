@@ -71,3 +71,7 @@ tags
 .history
 
 # End of https://www.gitignore.io/api/vim,perl,visualstudiocode
+
+/Test-Mojo-Role-StopOnFail-*
+/.build
+!META.json
