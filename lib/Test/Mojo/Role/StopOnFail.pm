@@ -73,7 +73,7 @@ __END__
 
 =head1 NAME
 
-Test::Mojo::Role::StopOnFail
+Test::Mojo::Role::StopOnFail - Stop Mojolicious tests after first failure
 
 =head1 VERSION
 
